@@ -22,10 +22,13 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("BS Information Systems", "BSIS", "Home")</li>
+                    <li>@Html.ActionLink("Masters of Information Systems Management", "MISM", "Home")</li>
+                    <li>@Html.ActionLink("Faculty", "Faculty", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                <!-- We don't need a login page or anything for the time being-->
+                <!--@Html.Partial("_LoginPartial")-->
             </div>
         </div>
     </div>

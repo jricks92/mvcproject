@@ -13,9 +13,23 @@ namespace MVC_Project.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult BSIS()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Information about the BS Information Systems.";
+
+            return View();
+        }
+
+        public ActionResult MISM()
+        {
+            ViewBag.Message = "Information about the MISM.";
+
+            return View();
+        }
+
+        public ActionResult Faculty()
+        {
+            ViewBag.Message = "Information about the Faculty.";
 
             return View();
         }
