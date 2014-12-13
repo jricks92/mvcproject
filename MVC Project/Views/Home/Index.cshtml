@@ -3,15 +3,24 @@
 }
 
 <div class="jumbotron">
-    <h1>Information Systems</h1>
-    <h3>Brigham Young University</h3>
-    <p>Information Systems at BYU is an exciting and awesome field of study! The world today relies on information systems in order to function and excel. Please feel free to browse this site to view more about the BYU IS major.</p>
-    <p>Feel free to send us an email by visiting our @Html.ActionLink("Contact", "Contact", "Home") page!</p>
-    <br />
-    <img src="http://www.ccny.cuny.edu/is/images/infobanner.jpg"></img>
+    <h3><b>Information Systems - Brigham Young University</b></h3>
+    <div class="banner"><img src="http://www.ccny.cuny.edu/is/images/infobanner.jpg" /></div>
+    <p>Everyone likes to have career options. Few programs will give you more than a degree in Information Systems</p>
+    <ul>
+        <li>Study in two worlds - business and technology - and learn to help them work together. Learn how to desing, develop, implement, manage, and advise on information technology systems and processes.</li>
+        <li>Begin a career that  the U.S. Department of Labor predicts will, "grow faster than the average for all occupations through 2016."</li>
+        <!-- Info taken from http://marriottschool.byu.edu/bsis/-->
+    </ul>
+    <p class="bold-italic">Which degree would you like to learn more about?</p>
+    @using (Html.BeginForm("ComboResult","Home")) { 
+        @Html.DropDownList("PageID");
+        <input type="submit" value="Go">
+
+    }
 </div>
 
-<!--<div class="jumbotron">
+<!-- Template Code - just in case we need it
+<div class="jumbotron">
     <h1>ASP.NET</h1>
     <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
     <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>

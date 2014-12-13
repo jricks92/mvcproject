@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MVC_Project.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,34 +11,45 @@ namespace MVC_Project.Controllers
     {
         public ActionResult Index()
         {
+            /* Populate drop down model */
+            List<DropDownItemsModel> listItems = new List<DropDownItemsModel>();
+            listItems.Add(new DropDownItemsModel("BSIS", "BSIS - Undergraduate Degree"));
+            listItems.Add(new DropDownItemsModel("MISM", "MISM - Masters Degree"));
+            /* Add Items to ViewBag as a SelectList type*/
+            ViewBag.PageID = new SelectList(listItems, "Value", "Text");
+
             return View();
         }
 
+        /* Page forwarding from combobox */
+        public ActionResult ComboResult(String PageID)
+        {
+            //Returns the view assocated with the Page Selected
+            return View(PageID);
+        }
+
+        /* Return the views for the associated pages */
         public ActionResult BSIS()
         {
-            ViewBag.Message = "Information about the BS Information Systems.";
-
             return View();
         }
 
         public ActionResult MISM()
         {
-            ViewBag.Message = "Information about the MISM.";
-
             return View();
         }
 
         public ActionResult Faculty()
         {
-            ViewBag.Message = "Information about the Faculty.";
-
+            return View();
+        }
+        public ActionResult Advisory()
+        {
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

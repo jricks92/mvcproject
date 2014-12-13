@@ -22,3 +22,17 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.banner {
+    /* Set properties for banner on main page*/
+    margin-left:auto;
+    margin-right:auto;
+    width: 734px;
+    padding-top:10px;
+    padding-bottom:30px;
+}
+
+.bold-italic {
+    font-weight:bold;
+    font-style:italic;
+}

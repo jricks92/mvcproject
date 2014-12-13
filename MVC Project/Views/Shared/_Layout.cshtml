@@ -21,10 +21,12 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("BS Information Systems", "BSIS", "Home")</li>
-                    <li>@Html.ActionLink("Masters of Information Systems Management", "MISM", "Home")</li>
+                    <!-- I don't think the main/home button is quite needed-->
+                    <!--<li>@Html.ActionLink("Main", "Index", "Home")</li>-->
+                    <li>@Html.ActionLink("Undergraduate", "BSIS", "Home")</li>
+                    <li>@Html.ActionLink("Masters", "MISM", "Home")</li>
                     <li>@Html.ActionLink("Faculty", "Faculty", "Home")</li>
+                    <li>@Html.ActionLink("Advisory Board", "Advisory", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 <!-- We don't need a login page or anything for the time being-->
