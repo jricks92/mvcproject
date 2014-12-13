@@ -1,0 +1,50 @@
+﻿@model MVC_Project.Models.Email
+
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    Brigham Young University<br />
+    Information Systems Department<br />
+    790 TNRB<br />
+    Provo, UT 84602<br />
+    <abbr title="Phone">P:</abbr>
+    801.422.6848
+</address>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Email</legend>
+
+
+        <div>
+            From:
+        </div>
+        <div>
+            @Html.EditorFor(model => model.From)
+        </div>
+        <br />
+        <div>
+            Subject:   
+        </div>
+        <div>
+            @Html.EditorFor(model => model.Subject)    
+        </div>
+        <br />
+        <div>
+            Message:
+        </div>
+        <div>
+            @Html.TextAreaFor(model => model.Body, new {rows="10" , cols="50"})
+        </div>
+        <br />
+        <p>
+            <input type="submit" value="Send" />
+        </p>
+    </fieldset>
+}
