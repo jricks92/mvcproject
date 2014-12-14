@@ -59,5 +59,18 @@ namespace MVC_Project.Controllers
         }
         }
 
+        [HttpPost]
+        public ViewResult Email(Email message)
+        {
+            if (ModelState.IsValid)
+            {
+                return View("Error",message);
+            }
+            else
+            {
+                return View();
+            }
+        }
+
 }
 }
