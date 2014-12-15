@@ -16,33 +16,24 @@
 </address>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary(true)
+    @Html.ValidationSummary()
 
     <fieldset>
         <legend>Email</legend>
 
 
         <div>
-            From:
+            <p>From: @Html.TextBoxFor(model => model.From)</p>
         </div>
+        
+
         <div>
-            @Html.EditorFor(model => model.From)
+            <p>Subject: @Html.TextBoxFor(model => model.Subject)</p>
         </div>
-        <br />
+        
         <div>
-            Subject:   
+            <p>Message: @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "50" })</p>
         </div>
-        <div>
-            @Html.EditorFor(model => model.Subject)    
-        </div>
-        <br />
-        <div>
-            Message:
-        </div>
-        <div>
-            @Html.TextAreaFor(model => model.Body, new {rows="10" , cols="50"})
-        </div>
-        <br />
         <p>
             <input type="submit" value="Send" />
         </p>
