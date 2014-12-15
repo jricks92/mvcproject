@@ -19,6 +19,7 @@ namespace MVC_Project.Controllers
         {
             return View();
         }
+
         public ActionResult Sent()
         {
             return View();
@@ -27,37 +28,49 @@ namespace MVC_Project.Controllers
         [HttpPost]
         public ActionResult Contact( Email objModelMail, HttpPostedFileBase fileUploader)
         {
+            //Checks to see if model is valid
             if (ModelState.IsValid)
             {
-                string from = "test@jamesonricks.com";
-                using (MailMessage mail = new MailMessage( objModelMail.From, from))
-            {
-        mail.Subject = objModelMail.Subject;
-        mail.Body = objModelMail.Body;
-            if (fileUploader != null)
-            {
-              string fileName = Path.GetFileName(fileUploader.FileName);
-              mail.Attachments.Add(new Attachment(fileUploader.InputStream, fileName));
+                //Address we want to send this email to
+                string to = "test@jamesonricks.com";
+                //create message object
+                using (MailMessage mail = new MailMessage( objModelMail.From, to))
+                {
+                        //get subject and body the user typed
+                        mail.Subject = objModelMail.Subject;
+                        mail.Body = objModelMail.Body;
+
+                    //Check to see if we're uploading a file
+                    if (fileUploader != null)
+                    {
+                        string fileName = Path.GetFileName(fileUploader.FileName);
+                        mail.Attachments.Add(new Attachment(fileUploader.InputStream, fileName));
+                    }
+
+                    //specify body type
+                    mail.IsBodyHtml = false;
+
+                    //outgoing mail settings
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "mail.jamesonricks.com";
+                    smtp.EnableSsl = false;
+                    NetworkCredential networkCredential = new NetworkCredential(to, "jameson4president");
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = networkCredential;
+                    smtp.Port = 26;
+                    
+                    //send the message
+                    smtp.Send(mail);
+
+                    //send the user to a confirmation page
+                    ViewBag.Message = "Sent";
+                    return View("Sent", objModelMail);
+                }
             }
-        mail.IsBodyHtml = false;
-        SmtpClient smtp = new SmtpClient();
-        smtp.Host = "mail.jamesonricks.com";
-        smtp.EnableSsl = false;
-        NetworkCredential networkCredential = new NetworkCredential(from, "jameson4president");
-        smtp.UseDefaultCredentials = true;
-        smtp.Credentials = networkCredential;
-        smtp.Port = 26;
-
-        smtp.Send(mail);
-        ViewBag.Message = "Sent";
-        return View("Sent", objModelMail);
+            else
+            {
+                return View();
+            }
         }
-        }
-        else
-        {
-        return View();
-        }
-        }
-
-}
+    }
 }
