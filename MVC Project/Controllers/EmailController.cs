@@ -15,16 +15,19 @@ namespace MVC_Project.Controllers
         //
         // GET: /MailMessaging/
 
+        //Default Contact page
         public ActionResult Contact()
         {
             return View();
         }
 
+        //Sent confirmation
         public ActionResult Sent()
         {
             return View();
         }
 
+        //Sending the actual message using POST rather than GET
         [HttpPost]
         public ActionResult Contact( Email objModelMail, HttpPostedFileBase fileUploader)
         {
@@ -67,6 +70,7 @@ namespace MVC_Project.Controllers
                     return View("Sent", objModelMail);
                 }
             }
+            //Don't send if there are errors
             else
             {
                 return View();

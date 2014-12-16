@@ -11,31 +11,34 @@
     Information Systems Department<br />
     790 TNRB<br />
     Provo, UT 84602<br />
-    <abbr title="Phone">P:</abbr>
-    801.422.6848
+    <abbr title="Phone">Phone:</abbr>
+    801.422.3247
 </address>
 
 @using (Html.BeginForm()) {
-    @Html.ValidationSummary()
 
     <fieldset>
         <legend>Email</legend>
 
-
-        <div>
-            <p>From: @Html.TextBoxFor(model => model.From)</p>
+        <!-- This looks a lot better when the field title is above the text boxes -->
+        <!-- Moved Validation below the fields to improve User Experience -->
+        <div>From:</div>
+        <div class="textboxes">
+            @Html.TextBoxFor(model => model.From)<br />
+            @Html.ValidationMessageFor(model => model.From)
         </div>
         
-
-        <div>
-            <p>Subject: @Html.TextBoxFor(model => model.Subject)</p>
+        <div>Subject:</div>
+        <div class ="textboxes">
+            @Html.TextBoxFor(model => model.Subject)<br />
+            @Html.ValidationMessageFor(model => model.Subject)
         </div>
         
-        <div>
-            <p>Message: @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "50" })</p>
+        <div>Message:</div>
+        <div class="textboxes">
+            @Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "50" })<br />
+            @Html.ValidationMessageFor(model => model.Body)
         </div>
-        <p>
-            <input type="submit" value="Send" />
-        </p>
+        <input type="submit" value="Send" />
     </fieldset>
 }

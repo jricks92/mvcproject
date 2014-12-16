@@ -37,40 +37,47 @@ textarea {
     font-style:italic;
 }
 
-.body-left{
+.textboxes {
+    /* top, right, bottom, left */
+    padding: 0px 0px 8px 0px;
+}
+
+/* to keep all our content i*/
+#container {
+    width: 90%;
+}
+
+/* left column */
+.body-left {
+    float:left;
     border-right: solid 1px #d9d9d9;
+    height: 335px;
     width: 250px;
-    left: 10px;
     text-align: center;
 }
 
-.body-left-faculty{
+#faculty-container {
+    width:100%;
+    min-height:225px;
+}
+.body-left-faculty {
+    float:left;
     width: 250px;
-    left: 10px;
+    min-height:130px;
     text-align: center;
 }
 
-.body-right{
-    right: 50px;
-    top: 100px;
-    left: 380px;
-    position:absolute;
-    text-align: justify;
-}
-footer{
-    bottom: 15px;
-    left: 50px;
-    right: 50px;
-    position: static;
-    border-top: solid 1px #d9d9d9;
+/* right column */
+.body-right {
+    left:25px;
+    position:relative;
+    width:90%;
+    text-align: left;
 }
 
+/* form validation*/
 .field-validation-error
 {
+    font-size:smaller;
     color: red;
-}
-
-.validation-summary-errors
-{
-    color: Red;
 }
